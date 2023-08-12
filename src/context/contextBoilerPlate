@@ -1,0 +1,9 @@
+// import { createContext, useContext } from "react";
+
+// const contextt = createContext();
+
+// export const contexttComponent = ({ children }) => {
+//   return <contextt.Provider value={{}}>{children}</contextt.Provider>;
+// };
+
+// export const useContextt = () => useContext(contextt);
