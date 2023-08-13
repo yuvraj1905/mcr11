@@ -1,7 +1,0 @@
-// export const reducer=(state,{type,payload})=>{
-//     case '':{
-//         return {}
-//     }
-//     default:
-//         return {...state}
-// }
