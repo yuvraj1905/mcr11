@@ -7,3 +7,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.blurBg {
+  filter: blur(0.5rem);
+}

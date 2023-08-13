@@ -78,77 +78,82 @@ const Home = () => {
   };
 
   return (
-    <div className="box-border flex flex-col w-full relative py-4 px-4 gap-4">
-      <section className="flex box-border justify-between items-start w-full  py-2 relative">
-        <h2 className="font-bold">Movies</h2>
-        <span className="flex">
-          <p>Select genre: </p>
-          <select
-            className="bg-stone-600 border-none outline-none p-[2px] text-white ml-1 rounded-lg cursor-pointer"
-            value={genre}
-            onChange={(e) =>
-              dispatch({ type: "genreSetter", payload: e.target.value })
-            }
-          >
-            {allGenres?.map((title) => (
-              <option className="cursor-pointer" value={title}>
-                {title}
-              </option>
-            ))}
-          </select>
-        </span>
-        <span className="flex">
-          <p>Select ReleaseYear: </p>
-          <select
-            className="bg-stone-600 border-none outline-none p-[2px] text-white ml-1 rounded-lg cursor-pointer"
-            value={releaseYear}
-            onChange={(e) =>
-              dispatch({ type: "releaseYearSetter", payload: e.target.value })
-            }
-          >
-            {years?.map((title) => (
-              <option value={title} className="cursor-pointer">
-                {title}
-              </option>
-            ))}
-          </select>
-        </span>
-        <span className="flex">
-          <p>Select Rating: </p>
-          <select
-            className="bg-stone-600 border-none outline-none p-[2px] text-white ml-1 rounded-lg cursor-pointer"
-            value={rating}
-            onChange={(e) =>
-              dispatch({ type: "ratingSetter", payload: e.target.value })
-            }
-          >
-            {ratings?.map((title) => (
-              <option className="cursor-pointer" value={title}>
-                {title}
-              </option>
-            ))}
-          </select>
-        </span>
+    <>
+      <div
+        className={`${
+          showModal ? "blurBg" : ""
+        } box-border flex flex-col w-full relative py-4 px-4 gap-4`}
+      >
+        <section className="flex box-border justify-between items-start w-full  py-2 relative">
+          <h2 className="font-bold">Movies</h2>
+          <span className="flex">
+            <p>Select genre: </p>
+            <select
+              className="bg-stone-600 border-none outline-none p-[2px] text-white ml-1 rounded-lg cursor-pointer"
+              value={genre}
+              onChange={(e) =>
+                dispatch({ type: "genreSetter", payload: e.target.value })
+              }
+            >
+              {allGenres?.map((title) => (
+                <option className="cursor-pointer" value={title}>
+                  {title}
+                </option>
+              ))}
+            </select>
+          </span>
+          <span className="flex">
+            <p>Select ReleaseYear: </p>
+            <select
+              className="bg-stone-600 border-none outline-none p-[2px] text-white ml-1 rounded-lg cursor-pointer"
+              value={releaseYear}
+              onChange={(e) =>
+                dispatch({ type: "releaseYearSetter", payload: e.target.value })
+              }
+            >
+              {years?.map((title) => (
+                <option value={title} className="cursor-pointer">
+                  {title}
+                </option>
+              ))}
+            </select>
+          </span>
+          <span className="flex">
+            <p>Select Rating: </p>
+            <select
+              className="bg-stone-600 border-none outline-none p-[2px] text-white ml-1 rounded-lg cursor-pointer"
+              value={rating}
+              onChange={(e) =>
+                dispatch({ type: "ratingSetter", payload: e.target.value })
+              }
+            >
+              {ratings?.map((title) => (
+                <option className="cursor-pointer" value={title}>
+                  {title}
+                </option>
+              ))}
+            </select>
+          </span>
 
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-stone-900 text-white font-semibold py-1 px-3 rounded-md hover:bg-stone-800"
-        >
-          Add a movie
-        </button>
-      </section>
-      {renderingData?.length > 0 ? (
-        <section className="flex box-border w-full flex-wrap py-2 justify-between relative overflow-x-hidden">
-          {renderingData?.map((movie) => (
-            <MovieCard data={movie} key={movie?.id} />
-          ))}{" "}
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-stone-900 text-white font-semibold py-1 px-3 rounded-md hover:bg-stone-800"
+          >
+            Add a movie
+          </button>
         </section>
-      ) : (
-        <h1 className="font-bold text-2xl">
-          No movies with that combination of filters
-        </h1>
-      )}
-
+        {renderingData?.length > 0 ? (
+          <section className="flex box-border w-full flex-wrap py-2 justify-between relative overflow-x-hidden">
+            {renderingData?.map((movie) => (
+              <MovieCard data={movie} key={movie?.id} />
+            ))}{" "}
+          </section>
+        ) : (
+          <h1 className="font-bold text-2xl">
+            No movies with that combination of filters
+          </h1>
+        )}
+      </div>
       <section
         style={{ display: !showModal ? "none" : "" }}
         className="p-4 bg-stone-800 shadow-md flex flex-col text-white gap-2 w-[40%] fixed rounded-md modal"
@@ -254,7 +259,7 @@ const Home = () => {
           </button>
         </span>
       </section>
-    </div>
+    </>
   );
 };
 
