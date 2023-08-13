@@ -1,6 +1,8 @@
 import React from "react";
+import { useMoviesContext } from "../context/contextBoilerPlate";
 
 const DetailsPageCard = ({ data }) => {
+  const { dispatch } = useMoviesContext();
   const {
     id,
     watchList,
@@ -27,6 +29,21 @@ const DetailsPageCard = ({ data }) => {
         <p>Director : {director}</p>
         <p>Writer : {writer}</p>
         <p>Cast : {cast?.join(",")}</p>
+        <span className="flex w-full px-3 justify-between mt-1">
+          <button
+            onClick={() => dispatch({ type: "movieStarrer", payload: id })}
+            className="p-2 rounded-md bg-stone-800 text-white font-bold"
+          >
+            {isStarred ? "Starred" : "Star"}
+          </button>
+
+          <button
+            onClick={() => dispatch({ type: "movieWatchLister", payload: id })}
+            className="p-2 rounded-md bg-stone-800 text-white font-bold"
+          >
+            {watchList ? "Added to watchlist" : "Add to watchlist"}
+          </button>
+        </span>
       </section>
     </div>
   );

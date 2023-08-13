@@ -9,13 +9,13 @@ const MovieCard = ({ data, watchlistCard, starredCard }) => {
   return (
     <div className="relative flex flex-col min-w-[22vw] gap-1 max-w-[22vw] rounded-md min-h-[60vh] max-h-[60vh] border shadow-md mb-8 items-center ">
       <img
-        onClick={() => navigate(`details/${id}`)}
+        onClick={() => navigate(`/details/${id}`)}
         src={imageURL}
         className="w-[100%] h-[62%] cursor-pointer object-cover rounded-t-md"
         alt=""
       />
       <h2
-        onClick={() => navigate(`details/${id}`)}
+        onClick={() => navigate(`/details/${id}`)}
         className="cursor-pointer font-bold text-center text-2xl"
       >
         {title}

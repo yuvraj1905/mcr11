@@ -11,10 +11,8 @@ const DetailsPage = () => {
     state: { data },
   } = useMoviesContext();
   useEffect(() => {
-    if (Object.keys(obj).length < 1) {
-      const movieFound = data?.find(({ id }) => id == mId);
-      setObj({ ...movieFound });
-    }
+    const movieFound = data?.find(({ id }) => id == mId);
+    setObj({ ...movieFound });
   }, [data]);
   const navigate = useNavigate();
   return (
