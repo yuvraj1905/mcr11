@@ -156,7 +156,7 @@ const Home = () => {
       </div>
       <section
         style={{ display: !showModal ? "none" : "" }}
-        className="p-4 bg-stone-800 shadow-md flex flex-col text-white gap-2 w-[40%] fixed rounded-md modal"
+        className="p-4 bg-stone-800 shadow-md flex z-50 flex-col text-white gap-2 w-[40%] fixed rounded-md modal"
       >
         <h1 className="font-bold text-2xl">Add new movie</h1>
         <span className="w-full flex flex-col gap-1 items-start">
